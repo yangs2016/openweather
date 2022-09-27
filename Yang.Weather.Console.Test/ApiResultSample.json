@@ -1,0 +1,79 @@
+{
+  "address_components": [
+    {
+      "long_name": "16363",
+      "short_name": "16363",
+      "types": [ "street_number" ]
+    },
+    {
+      "long_name": "Ashington Park Drive",
+      "short_name": "Ashington Park Dr",
+      "types": [ "route" ]
+    },
+    {
+      "long_name": "Tampa Palms",
+      "short_name": "Tampa Palms",
+      "types": [ "neighborhood", "political" ]
+    },
+    {
+      "long_name": "Tampa",
+      "short_name": "Tampa",
+      "types": [ "locality", "political" ]
+    },
+    {
+      "long_name": "Hillsborough County",
+      "short_name": "Hillsborough County",
+      "types": [ "administrative_area_level_2", "political" ]
+    },
+    {
+      "long_name": "Florida",
+      "short_name": "FL",
+      "types": [ "administrative_area_level_1", "political" ]
+    },
+    {
+      "long_name": "United States",
+      "short_name": "US",
+      "types": [ "country", "political" ]
+    },
+    {
+      "long_name": "33647",
+      "short_name": "33647",
+      "types": [ "postal_code" ]
+    },
+    {
+      "long_name": "2638",
+      "short_name": "2638",
+      "types": [ "postal_code_suffix" ]
+    }
+  ],
+  "formatted_address": "16363 Ashington Park Dr, Tampa, FL 33647, USA",
+  "geometry": {
+    "bounds": {
+      "northeast": {
+        "lat": 28.1188193,
+        "lng": -82.39145789999999
+      },
+      "southwest": {
+        "lat": 28.1186025,
+        "lng": -82.3917256
+      }
+    },
+    "location": {
+      "lat": 28.1187055,
+      "lng": -82.3916069
+    },
+    "location_type": "ROOFTOP",
+    "viewport": {
+      "northeast": {
+        "lat": 28.12005683029151,
+        "lng": -82.3902846197085
+      },
+      "southwest": {
+        "lat": 28.1173588697085,
+        "lng": -82.3929825802915
+      }
+    }
+  },
+  "place_id": "ChIJFbTA3ia4wogRSWZW-ah7fms",
+  "types": [ "premise" ]
+}

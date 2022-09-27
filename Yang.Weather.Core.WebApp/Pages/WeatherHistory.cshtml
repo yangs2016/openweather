@@ -1,0 +1,38 @@
+﻿@page
+@model Yang.Weather.Core.WebApp.Pages.WeatherHistoryModel
+@{
+    ViewData["Title"] = "Weather History";
+}
+<h1>@ViewData["Title"]</h1>
+@if (Model.WeatherHistory != null && Model.WeatherHistory.Count > 0)
+{ 
+    <div class="table-borderless">
+        <table class="sticky-md-top">
+            <thead>
+                <tr>
+                <th>Weather Id</th>
+                <th>Geocode Id</th>
+                <th>Temp.</th>
+                <th>Condition</th>
+                <th>Last Updated</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var w in Model.WeatherHistory)
+                {
+                    <tr>
+                        <td>@w.Id </td>
+                        <td>@w.GeoCodeId </td>
+                        <td>@w.Temperature</td>
+                        <td>@w.Condition</td>
+                        <td>@w.LastUpdatedDate.ToShortDateString()</td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+}
+
+

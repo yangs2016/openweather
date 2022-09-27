@@ -1,0 +1,90 @@
+﻿@page
+@model Yang.Weather.Core.WebApp.Pages.WeatherModel
+@{
+    ViewData["Title"] = "Weather Report";
+}
+<h1>@ViewData["Title"]</h1>
+@if (@Model.WeatherCondition != null && Model.ModelState.IsValid)
+{
+    <div class="row">
+       @* <div class="col-md-8">
+            <div class="form-group">
+                <label class="col-form-label">Location: <b>@Model.WeatherCondition.Name</b> </label>
+                <label class="col-form-label">Temp: <b>@Model.WeatherCondition.Main?.Temp</b> </label>
+                <label class="col-form-label">Temp. Min: <b>@Model.WeatherCondition.Main?.TempMin</b> </label>
+                <label class="col-form-label">Temp. Max: <b>@Model.WeatherCondition.Main?.TempMax</b> </label>
+                <label class="col-form-label">Feels Like: <b>@Model.WeatherCondition.Main?.FeelsLike</b> </label>
+            </div>
+            <div class="form-group">
+                <label class="col-form-label">Clouds: <b>@Model.WeatherCondition.Clouds?.All</b> </label>
+                <label class="col-form-label">Rain (1h): <b>@Model.WeatherCondition.Rain?.OneHour</b> </label>
+                <label class="col-form-label">Rain (3h): <b>@Model.WeatherCondition.Rain?.ThreeHour</b> </label>
+                <label class="col-form-label">Wind Speed: <b>@Model.WeatherCondition.Wind?.Speed</b> </label>
+                <label class="col-form-label">Date: <b>@Model.WeatherCondition.Dt</b> </label>
+            </div>
+            
+        </div>*@
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.WeatherCondition.Name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.WeatherCondition.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.WeatherCondition.Main.Temp)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.WeatherCondition.Main.Temp)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.WeatherCondition.Main.TempMin)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.WeatherCondition.Main.TempMin)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.WeatherCondition.Main.TempMax)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.WeatherCondition.Main.TempMax)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.WeatherCondition.Main.FeelsLike)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.WeatherCondition.Main.FeelsLike)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.WeatherCondition.Main.Humidity)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.WeatherCondition.Main.Humidity)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.WeatherCondition.Wind.Speed)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.WeatherCondition.Wind.Speed)
+            </dd>
+             <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.WeatherCondition.Rain.OneHour)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.WeatherCondition.Rain.OneHour)
+            </dd>
+    </div>
+}
+@if (!string.IsNullOrEmpty(Model.WeatherDataSavedStatus))
+{
+    <h4>@Model.WeatherDataSavedStatus</h4>
+    <div class="row">
+        <div class="col-md-8">
+            <a href="weatherhistory?geocodeId=@Model.GeocodeModel?.Id" title="View recorded weather history" target="_blank">View Weather History</a>
+        
+        </div>
+    </div>
+    
+
+}
+

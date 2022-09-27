@@ -1,0 +1,41 @@
+﻿@page
+@model Yang.Weather.Core.WebApp.Pages.GoogleMapApiQueryModel
+@{
+    ViewData["Title"] = "Query Geocoding";
+}
+<h1>@ViewData["Title"]</h1>
+<h4>Please enter an address to find weather condition in the area:</h4>
+    <div class="row" id="geo-code">
+        <div class="col-md-8">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="AddressModel.AdressLine1" class="control-label">Address</label>
+                    <input asp-for="AddressModel.AdressLine1" class="form-control" />
+                    <span asp-validation-for="AddressModel.AdressLine1" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AddressModel.City" class="control-label"></label>
+                    <input asp-for="AddressModel.City" class="form-control" />
+                    <span asp-validation-for="AddressModel.City" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AddressModel.State" class="control-label"></label>
+                    <input asp-for="AddressModel.State" class="form-control" data-val="true" data-val-minlength="6" />
+                    <span asp-validation-for="AddressModel.State" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AddressModel.PostalCode" class="control-label">*ZipCode</label>
+                    <input asp-for="AddressModel.PostalCode" class="form-control" />
+                    <span asp-validation-for="AddressModel.PostalCode" class="text-danger"></span>
+                </div>
+                <hr />
+                <div class="form-group">
+                    <input type="submit" value="Submit" class="btn btn-primary" />
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+ 
