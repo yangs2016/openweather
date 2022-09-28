@@ -5,7 +5,7 @@ using Yang.Weather.DataAccess.Config;
 
 namespace Yang.Weather.Core.WebApp.Config
 {
-    public class AppConfigurationProvider : IDataStoreConfigurationProvider
+    public class AppConfigurationProvider : IDataStoreConfigurationProvider, IAppSettingsConfigProvider
     {
         private readonly IConfiguration _configuration;
 
@@ -13,6 +13,15 @@ namespace Yang.Weather.Core.WebApp.Config
         {
             _configuration = config;
         }
-        public string ConnectionString => _configuration.GetConnectionString("WeatherDbContext"); 
+        public string ConnectionString => _configuration.GetConnectionString("WeatherDbContext");
+
+        public string GoogleMapApiKey => _configuration.GetValue<string>("GoogleMapApiKey");
+
+        public string OpenWeatherAppId => _configuration.GetValue<string>("OpenWeatherApiKey");
+
+        public string GoogleMapApiUrl => _configuration.GetValue<string>("GoogleMapApiUrl");
+
+
+        public string OpenWeatherApiUrl => _configuration.GetValue<string>("OpenWeatherApiUrl");
     }
 }

@@ -19,6 +19,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddSingleton<IGoogleMapApiService, GoogleMapApiService>();
 builder.Services.AddSingleton<IWeatherApiService, WeatherApiService>();
 builder.Services.AddSingleton<IDataStoreConfigurationProvider, AppConfigurationProvider>();
+builder.Services.AddSingleton<IAppSettingsConfigProvider, AppConfigurationProvider>();
 builder.Services.AddSingleton<IWeatherDao, WeatherDao>();
 builder.Services.AddSingleton<IGeoCodeDao,GeoCodeDao >();
 

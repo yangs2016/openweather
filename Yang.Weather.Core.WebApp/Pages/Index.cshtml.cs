@@ -29,7 +29,6 @@ namespace Yang.Weather.Core.WebApp.Pages
             _weatherApiService = weather;
             _geoCodeDao = geocodeDao;
         }
-
         public void OnGet()
         {
         }
@@ -46,6 +45,7 @@ namespace Yang.Weather.Core.WebApp.Pages
             if (apiResult != null)
             {
                 GeoCodeResult = apiResult.Geometry.Location;
+
                 if (GeoCodeResult != null)
                 {
                     var id = _geoCodeDao.CreateGeoCode(new DataAccess.Models.GeoCode()
@@ -55,17 +55,12 @@ namespace Yang.Weather.Core.WebApp.Pages
                         Description = apiResult.PlaceId,
                         Postalcode = AddressModel?.PostalCode ?? String.Empty
                     });
-                    
-                    return RedirectToPage("Weather" , new { Id = id, Longitude = GeoCodeResult.Longitude, Latitude = GeoCodeResult.Latitude, PlaceId=apiResult.PlaceId, PostalCode = AddressModel?.PostalCode });
 
+                    return RedirectToPage("Weather", new { Id = id, Longitude = GeoCodeResult.Longitude, Latitude = GeoCodeResult.Latitude, PlaceId = apiResult.PlaceId, PostalCode = AddressModel?.PostalCode });
                 }
-                //GetWeatherCondition(GeoCodeResult);
-
-                //return new OkObjectResult(new { message = "Geocode found ok", data = apiResult });
             }
-
+           
             return RedirectToPage("Error", new { errorMessage = $"Geocode was not found with your address for zipcode {AddressModel?.PostalCode}" });
-            
         }
 
         public void GetWeatherCondition(GeoCode? locale)

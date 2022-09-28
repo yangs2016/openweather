@@ -6,10 +6,10 @@
 <h1>@ViewData["Title"]</h1>
 @if (Model.WeatherHistory != null && Model.WeatherHistory.Count > 0)
 { 
-    <div class="table-borderless">
-        <table class="sticky-md-top">
+    <div class="table-borderless table-dark ">
+        <table class="table-primary">
             <thead>
-                <tr>
+                <tr class="d-xl-table-row">
                 <th>Weather Id</th>
                 <th>Geocode Id</th>
                 <th>Temp.</th>
@@ -20,7 +20,7 @@
             <tbody>
                 @foreach(var w in Model.WeatherHistory)
                 {
-                    <tr>
+                    <tr class="d-xl-table-row">
                         <td>@w.Id </td>
                         <td>@w.GeoCodeId </td>
                         <td>@w.Temperature</td>

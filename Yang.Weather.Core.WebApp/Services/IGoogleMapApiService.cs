@@ -1,19 +1,23 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Build.Framework;
+using Newtonsoft.Json;
 using RestSharp;
 using Yang.Weather.Business.Models.GoogleMapApi;
+using Yang.Weather.Core.WebApp.Config;
 
 namespace Yang.Weather.Business.Services
 {
     public class GoogleMapApiService : IGoogleMapApiService
     {
-        public GoogleMapApiService()
+        private readonly IAppSettingsConfigProvider _config;
+        public GoogleMapApiService(IAppSettingsConfigProvider settingsConfigProvider)
         { 
-            
+            _config = settingsConfigProvider;
         }
         public GoogleMapApiResult? QueryGeocoding(Address address)
         {
-            var mapApiBaseUrl = @"https://maps.googleapis.com/maps/api/geocode/json";
-            var apiKey = "AIzaSyBi6I_cyEBGjPYnKBnCpRvwj6SXx8iVBD8";
+            var mapApiBaseUrl = _config.GoogleMapApiUrl;
+            var apiKey = _config.GoogleMapApiKey;
+
             var options = new RestClientOptions(mapApiBaseUrl)
             {
                 ThrowOnAnyError = true,

@@ -7,23 +7,6 @@
 @if (@Model.WeatherCondition != null && Model.ModelState.IsValid)
 {
     <div class="row">
-       @* <div class="col-md-8">
-            <div class="form-group">
-                <label class="col-form-label">Location: <b>@Model.WeatherCondition.Name</b> </label>
-                <label class="col-form-label">Temp: <b>@Model.WeatherCondition.Main?.Temp</b> </label>
-                <label class="col-form-label">Temp. Min: <b>@Model.WeatherCondition.Main?.TempMin</b> </label>
-                <label class="col-form-label">Temp. Max: <b>@Model.WeatherCondition.Main?.TempMax</b> </label>
-                <label class="col-form-label">Feels Like: <b>@Model.WeatherCondition.Main?.FeelsLike</b> </label>
-            </div>
-            <div class="form-group">
-                <label class="col-form-label">Clouds: <b>@Model.WeatherCondition.Clouds?.All</b> </label>
-                <label class="col-form-label">Rain (1h): <b>@Model.WeatherCondition.Rain?.OneHour</b> </label>
-                <label class="col-form-label">Rain (3h): <b>@Model.WeatherCondition.Rain?.ThreeHour</b> </label>
-                <label class="col-form-label">Wind Speed: <b>@Model.WeatherCondition.Wind?.Speed</b> </label>
-                <label class="col-form-label">Date: <b>@Model.WeatherCondition.Dt</b> </label>
-            </div>
-            
-        </div>*@
         <dl class="row">
             <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.WeatherCondition.Name)

@@ -3,6 +3,7 @@ using RestSharp;
 using Yang.Weather.Business.Models.OpenWeather;
 using Yang.Weather.Business.Models.GoogleMapApi;
 using System.Diagnostics;
+using Yang.Weather.Core.WebApp.Config;
 
 namespace Yang.Weather.Business.Services
 {
@@ -13,10 +14,17 @@ namespace Yang.Weather.Business.Services
 
     public class WeatherApiService : IWeatherApiService
     {
+        private readonly IAppSettingsConfigProvider _config;
+        public WeatherApiService(IAppSettingsConfigProvider appSettingsConfigProvider)
+        { 
+            _config = appSettingsConfigProvider;
+        }
+
         public OpenWeatherApiResponse? QueryWeatherCondition(GeoCode coord)
         {
-            var apiBaseUrl = @"https://api.openweathermap.org/data/2.5/weather?"; //should get from config settings
-            var apiKey = "800a3f8dc7a089347269a3957e059ee1"; //this should get from Azure keyvault
+            var apiBaseUrl = _config.OpenWeatherApiUrl;
+            var apiKey = _config.OpenWeatherAppId;
+
             var options = new RestClientOptions(apiBaseUrl)
             {
                 ThrowOnAnyError = true,
@@ -46,7 +54,6 @@ namespace Yang.Weather.Business.Services
             }
             catch (Exception e)
             {
-
                 Debug.WriteLine(e.Message);
                 return null;
             }

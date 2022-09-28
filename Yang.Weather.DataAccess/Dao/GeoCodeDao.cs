@@ -25,7 +25,6 @@ namespace Yang.Weather.DataAccess.Dao
         public IReadOnlyList<GeoCode>? GetAllGeoCodes()
         {
             return FindMultiple<GeoCode>(s => s.Id > 0)?.ToList();
-
         }
 
         public GeoCode? GetGeoCode(int id)
