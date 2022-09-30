@@ -14,10 +14,10 @@ end
 
 if not exists(select * from sys.tables where name = N'WeatherCondition' and SCHEMA_NAME(schema_id)='dbo')
 begin
-CREATE TABLE [dbo].[WeatherCondition] (
+create TABLE [dbo].[WeatherCondition] (
     [Id]           INT            IDENTITY (1, 1) NOT NULL,
     [GeoCodeId]    INT            NOT NULL,
-    [Temperature]  float    NOT NULL,
+    [Temperature]  decimal (5,2)    NOT NULL,
     [Condition]    NVARCHAR (200) NULL,
 	[CreatedDate] datetime not null,
 	[LastUpdatedDate] datetime not null,

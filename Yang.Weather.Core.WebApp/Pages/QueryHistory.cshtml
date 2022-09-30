@@ -1,0 +1,37 @@
+﻿@page
+@model Yang.Weather.Core.WebApp.Pages.QueryWeatherHistoryModel
+@{
+    ViewData["Title"] = "Query Weather History";
+}
+<h3>@ViewData["Title"]</h3>
+<h5>Search for weather condition for specific zip code and period:</h5>
+    <div class="row" id="geo-code">
+        <div class="col-md-8">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Postalcode" class="control-label">*Zipcode:</label>
+                    <input asp-for="Postalcode" class="form-control" />
+                    <span asp-validation-for="Postalcode" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="StartDate" class="control-label">*From:</label>
+                    <input asp-for="StartDate" class="form-control" />
+                    <span asp-validation-for="StartDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="EndDate" class="control-label">*To:</label>
+                    <input asp-for="EndDate" class="form-control" data-val="true" data-val-minlength="6" />
+                    <span asp-validation-for="EndDate" class="text-danger"></span>
+                </div>
+                
+                <br />
+                <div class="form-group">
+                    <input type="submit" value="Submit" class="btn btn-primary" />
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+ 

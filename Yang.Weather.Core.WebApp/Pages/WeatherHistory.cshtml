@@ -1,4 +1,4 @@
-﻿@page
+﻿@page 
 @model Yang.Weather.Core.WebApp.Pages.WeatherHistoryModel
 @{
     ViewData["Title"] = "Weather History";
@@ -6,22 +6,22 @@
 <h1>@ViewData["Title"]</h1>
 @if (Model.WeatherHistory != null && Model.WeatherHistory.Count > 0)
 { 
-    <div class="table-borderless table-dark ">
-        <table class="table-primary">
+    <div class="row ">
+        <table class="table table-striped">
             <thead>
-                <tr class="d-xl-table-row">
-                <th>Weather Id</th>
-                <th>Geocode Id</th>
-                <th>Temp.</th>
-                <th>Condition</th>
-                <th>Last Updated</th>
+                <tr>
+                <th scope="col">Weather Id</th>
+                <th scope="col"> Geocode Id</th>
+                <th scope="col">Temp.</th>
+                <th scope="col">Condition</th>
+                <th scope="col">Date</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach(var w in Model.WeatherHistory)
                 {
-                    <tr class="d-xl-table-row">
-                        <td>@w.Id </td>
+                    <tr>
+                        <th scope="row">@w.Id </th>
                         <td>@w.GeoCodeId </td>
                         <td>@w.Temperature</td>
                         <td>@w.Condition</td>
@@ -31,6 +31,15 @@
                 }
             </tbody>
         </table>
+    </div>
+    <div class="row">
+        <span class="row-cols-sm-6">@Model.WeatherHistoryStatus </span>
+    </div>
+}
+else
+{
+    <div class="row">
+       No history recods found.
     </div>
 
 }

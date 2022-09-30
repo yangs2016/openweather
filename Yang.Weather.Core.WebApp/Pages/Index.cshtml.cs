@@ -50,8 +50,8 @@ namespace Yang.Weather.Core.WebApp.Pages
                 {
                     var id = _geoCodeDao.CreateGeoCode(new DataAccess.Models.GeoCode()
                     {
-                        Latitude = GeoCodeResult.Latitude,
-                        Longitude = GeoCodeResult.Longitude,
+                        Latitude = (decimal) GeoCodeResult.Latitude,
+                        Longitude = (decimal) GeoCodeResult.Longitude,
                         Description = apiResult.PlaceId,
                         Postalcode = AddressModel?.PostalCode ?? String.Empty
                     });

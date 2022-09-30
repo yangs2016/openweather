@@ -31,5 +31,10 @@ namespace Yang.Weather.DataAccess.Dao
         {
             return FindFirstOrDefault<GeoCode>(s =>s.Id == id);
         }
+
+        public IReadOnlyList<GeoCode>? GetGeocodeByZipcode(string zipcode)
+        {
+            return FindMultiple<GeoCode>(c => c.Postalcode == zipcode)?.OrderBy(c=>c.Id).ToList();
+        }
     }
 }

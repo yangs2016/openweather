@@ -22,5 +22,15 @@ namespace Yang.Weather.DataAccess.Dao
         {
             return Create<WeatherCondition>(weather)>0? weather.Id:0;
         }
+
+        public IReadOnlyList<WeatherCondition>? GetWeatherByGeocodes(int[] geoCodeIds)
+        {
+            return FindMultiple<WeatherCondition>(w => geoCodeIds.Contains(w.GeoCodeId))?.ToList();
+        }
+
+        public IReadOnlyList<WeatherCondition>? GetWeatherConditionsByDates(DateTime start, DateTime end)
+        {
+            return FindMultiple<WeatherCondition>(w => w.CreatedDate >= start && w.CreatedDate <= end)?.ToList();        
+        }
     }
 }

@@ -42,7 +42,7 @@ namespace Yang.Weather.Core.WebApp.Pages
                 var dataModel = new DataAccess.Models.WeatherCondition()
                 {
                     GeoCodeId = code.Id,
-                    Temperature = result.Main?.Temp ?? 0,
+                    Temperature = decimal.Parse((result.Main?.Temp ?? 0).ToString("0.00")),
                     Condition = $"Feel like {result.Main?.FeelsLike} Humidity: ${result.Main?.Humidity}",
                     CreatedDate = DateTime.UtcNow,
                     LastUpdatedDate = DateTime.UtcNow

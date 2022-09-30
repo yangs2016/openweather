@@ -14,5 +14,7 @@ namespace Yang.Weather.DataAccess.Contracts
         int CreateGeoCode(GeoCode geoCode);
 
         IReadOnlyList<GeoCode>? GetAllGeoCodes();
+
+        IReadOnlyList<GeoCode>? GetGeocodeByZipcode(string zipcode);
     }
 }

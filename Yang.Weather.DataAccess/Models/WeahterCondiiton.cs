@@ -5,7 +5,7 @@
         public int Id { get; set; }
         public int GeoCodeId { get; set; }
 
-        public double Temperature { get; set; }
+        public decimal Temperature { get; set; }
 
         public string Condition { get; set; } = string.Empty;
 

@@ -3,8 +3,8 @@
 @{
     ViewData["Title"] = "Query Geocoding";
 }
-<h1>@ViewData["Title"]</h1>
-<h4>Please enter an address to find weather condition in the area:</h4>
+<h3>@ViewData["Title"]</h3>
+<h5>Please enter an address to find weather condition in the area:</h5>
     <div class="row" id="geo-code">
         <div class="col-md-8">
             <form method="post">
@@ -29,7 +29,7 @@
                     <input asp-for="AddressModel.PostalCode" class="form-control" />
                     <span asp-validation-for="AddressModel.PostalCode" class="text-danger"></span>
                 </div>
-                <hr />
+                <br />
                 <div class="form-group">
                     <input type="submit" value="Submit" class="btn btn-primary" />
                 </div>
